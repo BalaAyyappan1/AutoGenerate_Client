@@ -189,7 +189,7 @@ const GenerateForm = () => {
                     className="flex items-center justify-between p-5 rounded-[1.2rem] bg-white/60 border border-[#000000]/30 hover:border-[#6265f0] hover:shadow-2xl hover:shadow-[#6265f0]/10 transition-all group text-left"
                   >
                     <div>
-                      <p className="font-bold text-gray-900 group-hover:text-[#6265f0] transition-colors text-xl leading-tight">{b.boardname}</p>
+                      <p className="font-bold text-gray-900 group-hover:text-[#6265f0] transition-colors text-lg leading-tight">{b.boardname}</p>
                       
                     </div>
                     <div className="p-2 bg-slate-100 rounded-2xl group-hover:bg-[#6265f0] group-hover:text-white transition-all text-slate-600">
@@ -216,7 +216,7 @@ const GenerateForm = () => {
                       onClick={() => handleSubjectSelect(s)}
                       className="flex items-center justify-between p-5 rounded-[1.2rem] bg-white/60 border border-[#000000]/30 hover:border-[#6265f0] hover:shadow-2xl hover:shadow-[#6265f0]/10 transition-all group text-left"
                     >
-                      <span className="font-bold text-gray-900 group-hover:text-[#6265f0] transition-colors text-xl leading-tight">{s.subjectname}</span>
+                      <span className="font-bold text-gray-900 group-hover:text-[#6265f0] transition-colors text-lg leading-tight">{s.subjectname}</span>
                       <div className="p-2 bg-slate-100 rounded-2xl group-hover:bg-[#6265f0] group-hover:text-white transition-all text-slate-600">
                          <ChevronRight className="w-6 h-6" />
                       </div>

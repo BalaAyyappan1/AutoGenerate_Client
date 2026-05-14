@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className='bg-slate-100 h-screen flex items-center justify-center text-black'>Flashcards page</div>
   )
 }
 

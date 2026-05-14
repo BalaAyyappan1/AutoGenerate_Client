@@ -32,11 +32,11 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-screen bg-white dark:bg-[#0b0f1a]">
+      <body className="min-h-screen bg-white">
         <div className="flex">
           <Sidebar />
 
-          <main className="ml-64 flex-1">
+          <main className="ml-64 flex-1 bg-slate-100">
             {children}
           </main>
         </div>
