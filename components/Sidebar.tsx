@@ -17,11 +17,6 @@ const NAV_ITEMS: NavItem[] = [
     label: "Lessons",
     icon: BookOpen,
   },
-  {
-    href: "/flashcards",
-    label: "Flashcards",
-    icon: Layers3,
-  },
 ];
 
 export default function Sidebar() {

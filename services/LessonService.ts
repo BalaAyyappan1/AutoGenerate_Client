@@ -34,64 +34,64 @@ async function apiFetch<T>(
 
 export const lessonService = {
 
-  // POST /ai-lesson/generate
+  // POST /ai-lessons/generate
   generateBySubmodule: (payload: GenerateBySubmodulePayload) =>
-    apiFetch<GenerateResult>("/ai-lesson/generate", {
+    apiFetch<GenerateResult>("/ai-lessons/generate", {
       method: "POST",
       body: JSON.stringify(payload),
     }),
 
-  // POST /ai-lesson/generate-by-module
+  // POST /ai-lessons/generate-by-module
   generateByModule: (payload: GenerateByModulePayload) =>
-    apiFetch<BulkGenerateResult>("/ai-lesson/generate-by-module", {
+    apiFetch<BulkGenerateResult>("/ai-lessons/generate-by-module", {
       method: "POST",
       body: JSON.stringify(payload),
     }),
 
-  // GET /ai-lesson/pending
+  // GET /ai-lessons/pending
   getPendingLessons: () =>
-    apiFetch<PendingLessonsResult>("/ai-lesson/pending"),
+    apiFetch<PendingLessonsResult>("/ai-lessons/pending"),
 
-  // GET /ai-lesson/lesson/:submoduleid?status=approved
+  // GET /ai-lessons/lesson/:submoduleid?status=approved
   getLessonSummary: (submoduleid: string, status = "approved") =>
     apiFetch<{ success: boolean; lesson: Lesson }>(
-      `/ai-lesson/lesson/${submoduleid}?status=${status}`
+      `/ai-lessons/lesson/${submoduleid}?status=${status}`
     ),
 
-  // PATCH /ai-lesson/approve/:submoduleid
+  // PATCH /ai-lessons/approve/:submoduleid
   approveLesson: (submoduleid: string, payload: ApprovePayload) =>
     apiFetch<{ success: boolean; message: string }>(
-      `/ai-lesson/approve/${submoduleid}`,
+      `/ai-lessons/approve/${submoduleid}`,
       { method: "PATCH", body: JSON.stringify(payload) }
     ),
 
-  // PATCH /ai-lesson/reject/:submoduleid
+  // PATCH /ai-lessons/reject/:submoduleid
   rejectLesson: (submoduleid: string, payload: RejectPayload) =>
     apiFetch<{ success: boolean; message: string }>(
-      `/ai-lesson/reject/${submoduleid}`,
+      `/ai-lessons/reject/${submoduleid}`,
       { method: "PATCH", body: JSON.stringify(payload) }
     ),
 
-  // GET /ai-lesson/lessons (with filters)
+  // GET /ai-lessons/lessons (with filters)
   getLessons: (filters: { boardid?: string; subjectid?: string; topicid?: string; moduleid?: string; status?: string; page?: number; limit?: number } = {}) => {
     const params = new URLSearchParams();
     Object.entries(filters).forEach(([key, val]) => {
       if (val) params.append(key, val.toString());
     });
-    return apiFetch<PendingLessonsResult>(`/ai-lesson/lessons?${params.toString()}`);
+    return apiFetch<PendingLessonsResult>(`/ai-lessons/lessons?${params.toString()}`);
   },
 
-  // PATCH /ai-lesson/update/:seqnumber
+  // PATCH /ai-lessons/update/:seqnumber
   updateLesson: (seqnumber: number, payload: Partial<Lesson>) =>
     apiFetch<{ success: boolean; message: string }>(
-      `/ai-lesson/update/${seqnumber}`,
+      `/ai-lessons/update/${seqnumber}`,
       { method: "PATCH", body: JSON.stringify(payload) }
     ),
 
-  // PATCH /ai-lesson/bulk-status-update
+  // PATCH /ai-lessons/bulk-status-update
   bulkUpdateStatus: (seqnumbers: number[], status: 'approved' | 'rejected' | 'pending') =>
     apiFetch<{ success: boolean; message: string; count: number }>(
-      "/ai-lesson/bulk-status-update",
+      "/ai-lessons/bulk-status-update",
       { method: "PATCH", body: JSON.stringify({ seqnumbers, status }) }
     ),
 
